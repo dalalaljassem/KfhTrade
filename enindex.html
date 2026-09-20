@@ -49,104 +49,44 @@
       </div>
     </div>
   </header>
+  <script>
+    /* Header is transparent over the top of the hero, dark glass after scrolling */
+    (function () {
+      var h = document.querySelector('.site-header');
+      if (!h) return;
+      function set() { h.classList.toggle('at-top', window.scrollY < 24); }
+      set();
+      window.addEventListener('scroll', set, { passive: true });
+    })();
+  </script>
+
 
   <main>
 
     <!-- Hero -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
+    <section class="hero-cover">
+      <div class="hero-media" aria-hidden="true">
+        <img src="/hero.png" alt="" width="1740" height="904" fetchpriority="high" decoding="async">
+      </div>
+      <div class="wrap hero-cover-inner">
+        <div class="hero-copy">
           <h1>Trade five markets from one screen</h1>
           <p class="lead">Kuwait, Saudi Arabia, the UAE, Qatar and the US. Move money from your bank account to your
             trading account instantly.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-green" href="https://www.kfhtrade.com/en/Account-Opening">Open an account</a>
+            <a class="btn btn-white" href="https://www.kfhtrade.com/en/Account-Opening">Open an account</a>
             <a class="btn btn-line" href="https://trading.kfhtrade.com/">Log in to your account</a>
           </div>
 
           <div class="stores">
             <a href="https://apps.apple.com/kw/app/kfh-trade/id1480361102">
-              <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/apple_store_icon.png"
-                alt="Download on the App Store">
+              <img src="/app-store.svg" width="120" height="40" alt="حمّل التطبيق من App Store">
             </a>
             <a href="https://play.google.com/store/apps/details?id=net.directfn.prod.android.kfhtrade">
-              <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/play_store_icon.png"
-                alt="Get it on Google Play">
+              <img src="/google-play.svg" width="120" height="40" alt="حمّل التطبيق من Google Play">
             </a>
           </div>
-        </div>
-
-        <!-- Decorative mockup: replace with a real app screenshot when available -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="phone">
-            <div class="screen">
-              <p class="screen-title">Markets</p>
-              <ul class="rows">
-                <li><span class="code">KW</span><span>Kuwait</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,22 12,18 24,20 36,12 48,14 60,6 80,9" />
-                  </svg>
-                </li>
-                <li><span class="code">SA</span><span>Saudi Arabia</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,10 14,14 26,8 40,16 54,12 66,18 80,6" />
-                  </svg>
-                </li>
-                <li><span class="code">AE</span><span>UAE</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,20 12,14 26,16 38,9 52,12 66,5 80,8" />
-                  </svg>
-                </li>
-                <li><span class="code">QA</span><span>Qatar</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,14 14,18 28,10 42,12 54,7 68,10 80,4" />
-                  </svg>
-                </li>
-                <li><span class="code">US</span><span>United States</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,24 12,20 26,22 40,13 54,15 66,8 80,5" />
-                  </svg>
-                </li>
-              </ul>
-              <div class="transfer">
-                <span>From your bank account</span>
-                <span class="pill">Instant transfer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Markets -->
-    <section class="markets" id="markets">
-      <div class="wrap">
-        <h2>Many markets, one screen</h2>
-        <p class="lead">Trade across multiple financial markets from one place, and move money from your bank account to
-          your trading account in moments.</p>
-
-        <div class="market-grid">
-          <div class="market">
-            <span class="code">KW</span>
-            <h3>Kuwait</h3>
-          </div>
-          <a class="market" href="https://www.kfhtrade.com/en/Market/KSA">
-            <span class="code">SA</span>
-            <h3>Saudi Arabia <small>Explore the market</small></h3>
-          </a>
-          <div class="market">
-            <span class="code">AE</span>
-            <h3>UAE</h3>
-          </div>
-          <div class="market">
-            <span class="code">QA</span>
-            <h3>Qatar</h3>
-          </div>
-          <a class="market" href="https://www.kfhtrade.com/en/Market/USA">
-            <span class="code">US</span>
-            <h3>United States <small>Explore the market</small></h3>
-          </a>
         </div>
       </div>
     </section>
@@ -187,45 +127,82 @@
       </div>
     </section>
 
-    <!-- Call to action -->
-    <section class="cta">
-      <div class="cta-inner">
-        <div>
-          <h2>Open your account and start trading</h2>
-          <p>Watch how account opening works in a short video, or call us on 184 2000.</p>
-        </div>
-        <div class="cta-actions">
+    <!-- Markets -->
+    <section class="showcase" id="app">
+      <div class="showcase-grid">
+        <div class="showcase-copy">
+          <h2>Five markets in the palm of your hand</h2>
+          <p class="lead">Follow prices, buy and sell across Kuwait, Saudi Arabia, the UAE, Qatar and the US in the KFH
+            Trade app.</p>
           <a class="btn btn-white" href="https://www.kfhtrade.com/en/Account-Opening">Open an account</a>
-          <a class="btn btn-line" href="https://www.instagram.com/reel/DPv03JgDPTh/">Watch the account opening video</a>
         </div>
+        <figure class="showcase-media">
+          <img src="/currencies.png" alt="A customer following the KFH share price in the KFH Trade app on his phone"
+            width="1740" height="904" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/KFHLogo.png" alt="KFH Capital">
-        </div>
-
-        <div>
-          <a class="phone-number" href="tel:1842000">184 2000</a>
-          <div class="footer-links" style="margin-block-start:.75rem">
-            <a href="https://www.kfhtrade.com/en/FAQ">FAQ</a>
-            <a href="https://www.kfhtrade.com/en/Contact-Us">Contact us</a>
+  <footer class="ft">
+    <div class="ft-wrap">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <a class="ft-logo" href="https://www.kfhtrade.com/en/">
+            <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/logo.svg" alt="KFH Trade">
+          </a>
+          <p class="ft-note">A service of KFH Capital.</p>
+          <span class="ft-label">Call us</span>
+          <a class="ft-phone" href="tel:1842000">184 2000</a>
+          <div class="ft-stores">
+            <a href="https://apps.apple.com/kw/app/kfh-trade/id1480361102">
+              <img src="/app-store.svg" width="120" height="40" alt="حمّل التطبيق من App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=net.directfn.prod.android.kfhtrade">
+              <img src="/google-play.svg" width="120" height="40" alt="حمّل التطبيق من Google Play">
+            </a>
           </div>
         </div>
 
-        <div class="footer-links">
-          <a href="https://twitter.com/KFH_Capital">X</a>
-          <a href="https://www.linkedin.com/company/kfhcapital">LinkedIn</a>
-          <a href="https://instagram.com/kfhcapital">Instagram</a>
-        </div>
+        <nav class="ft-cols" aria-label="Footer">
+          <div>
+            <h2 class="ft-h">KFH Trade</h2>
+            <ul>
+              <li><a href="https://www.kfhtrade.com/en/About">About KFH Trade</a></li>
+              <li><a href="https://www.kfhtrade.com/en/Services">Services</a></li>
+              <li><a href="https://www.kfhtrade.com/en/Trading-Information">Trading information</a></li>
+              <li><a href="https://www.kfhtrade.com/en/Trading-System">Trading system</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="ft-h">Tools</h2>
+            <ul>
+              <li><a href="https://www.kfhtrade.com/en/Zakat-Calculator">Zakat calculator</a></li>
+              <li><a href="https://www.kfhtrade.com/en/Downloads">Download forms</a></li>
+              <li><a href="https://www.kfhtrade.com/IPOLoginClient">Capital increase</a></li>
+              <li><a href="https://www.kfhtrade.com/en/Announcements">Announcements</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="ft-h">Support</h2>
+            <ul>
+              <li><a href="https://www.kfhtrade.com/en/Account-Opening">Open an account</a></li>
+              <li><a href="https://www.kfhtrade.com/en/FAQ">FAQ</a></li>
+              <li><a href="https://www.kfhtrade.com/en/Contact-Us">Contact us</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
 
-      <p class="copyright">Copyright ©2026 KFH Capital Investment Company. All rights reserved.</p>
+      <div class="ft-bottom">
+        <p>Copyright ©2026 KFH Capital Investment Company. All rights reserved.</p>
+        <ul class="ft-social" aria-label="Social media">
+          <li><a href="https://twitter.com/KFH_Capital">X</a></li>
+          <li><a href="https://www.linkedin.com/company/kfhcapital">LinkedIn</a></li>
+          <li><a href="https://instagram.com/kfhcapital">Instagram</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 

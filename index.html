@@ -49,104 +49,44 @@
       </div>
     </div>
   </header>
+  <script>
+    /* Header is transparent over the top of the hero, dark glass after scrolling */
+    (function () {
+      var h = document.querySelector('.site-header');
+      if (!h) return;
+      function set() { h.classList.toggle('at-top', window.scrollY < 24); }
+      set();
+      window.addEventListener('scroll', set, { passive: true });
+    })();
+  </script>
+
 
   <main>
 
     <!-- Hero -->
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
+    <section class="hero-cover">
+      <div class="hero-media" aria-hidden="true">
+        <img src="/hero.png" alt="" width="1740" height="904" fetchpriority="high" decoding="async">
+      </div>
+      <div class="wrap hero-cover-inner">
+        <div class="hero-copy">
           <h1>تداول في خمسة أسواق من شاشة واحدة</h1>
           <p class="lead">الكويت والسعودية والإمارات وقطر وأمريكا. وحوّل الأموال من حسابك المصرفي إلى حساب التداول بشكل
             فوري.</p>
 
           <div class="hero-actions">
-            <a class="btn btn-green" href="https://www.kfhtrade.com/Account-Opening">فتح حساب</a>
+            <a class="btn btn-white" href="https://www.kfhtrade.com/Account-Opening">فتح حساب</a>
             <a class="btn btn-line" href="https://trading.kfhtrade.com/">الدخول إلى حسابك</a>
           </div>
 
           <div class="stores">
             <a href="https://apps.apple.com/kw/app/kfh-trade/id1480361102">
-              <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/apple_store_icon.png"
-                alt="حمّل التطبيق من App Store">
+              <img src="/app-store-light.svg" width="120" height="40" alt="حمّل التطبيق من App Store">
             </a>
             <a href="https://play.google.com/store/apps/details?id=net.directfn.prod.android.kfhtrade">
-              <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/play_store_icon.png"
-                alt="حمّل التطبيق من Google Play">
+              <img src="/google-play-light.svg" width="120" height="40" alt="حمّل التطبيق من Google Play">
             </a>
           </div>
-        </div>
-
-        <!-- Decorative mockup: replace with a real app screenshot when available -->
-        <div class="hero-visual" aria-hidden="true">
-          <div class="phone">
-            <div class="screen">
-              <p class="screen-title">الأسواق</p>
-              <ul class="rows">
-                <li><span class="code">KW</span><span>الكويت</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,22 12,18 24,20 36,12 48,14 60,6 80,9" />
-                  </svg>
-                </li>
-                <li><span class="code">SA</span><span>السعودية</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,10 14,14 26,8 40,16 54,12 66,18 80,6" />
-                  </svg>
-                </li>
-                <li><span class="code">AE</span><span>الإمارات</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,20 12,14 26,16 38,9 52,12 66,5 80,8" />
-                  </svg>
-                </li>
-                <li><span class="code">QA</span><span>قطر</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,14 14,18 28,10 42,12 54,7 68,10 80,4" />
-                  </svg>
-                </li>
-                <li><span class="code">US</span><span>أمريكا</span>
-                  <svg class="spark" viewBox="0 0 80 28">
-                    <polyline points="0,24 12,20 26,22 40,13 54,15 66,8 80,5" />
-                  </svg>
-                </li>
-              </ul>
-              <div class="transfer">
-                <span>من حسابك المصرفي</span>
-                <span class="pill">تحويل فوري</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Markets -->
-    <section class="markets" id="markets">
-      <div class="wrap">
-        <h2>أسواق عديدة عبر شاشة واحدة</h2>
-        <p class="lead">تداول في العديد من الأسواق المالية من مكان واحد، وحوّل الأموال من حسابك المصرفي إلى حساب التداول
-          في لحظات.</p>
-
-        <div class="market-grid">
-          <div class="market">
-            <span class="code">KW</span>
-            <h3>الكويت</h3>
-          </div>
-          <a class="market" href="https://www.kfhtrade.com/Market/KSA">
-            <span class="code">SA</span>
-            <h3>السعودية <small>استعرض السوق</small></h3>
-          </a>
-          <div class="market">
-            <span class="code">AE</span>
-            <h3>الإمارات</h3>
-          </div>
-          <div class="market">
-            <span class="code">QA</span>
-            <h3>قطر</h3>
-          </div>
-          <a class="market" href="https://www.kfhtrade.com/Market/USA">
-            <span class="code">US</span>
-            <h3>أمريكا <small>استعرض السوق</small></h3>
-          </a>
         </div>
       </div>
     </section>
@@ -187,45 +127,82 @@
       </div>
     </section>
 
-    <!-- Call to action -->
-    <section class="cta">
-      <div class="cta-inner">
-        <div>
-          <h2>افتح حسابك وابدأ التداول</h2>
-          <p>شاهد خطوات فتح الحساب في فيديو قصير، أو تواصل معنا على 184 2000.</p>
-        </div>
-        <div class="cta-actions">
+    <!-- Markets -->
+    <section class="showcase" id="app">
+      <div class="showcase-grid">
+        <div class="showcase-copy">
+          <h2>خمسة أسواق في راحة يدك</h2>
+          <p class="lead">تابع الأسعار واشترِ وبِع في الكويت والسعودية والإمارات وقطر وأمريكا عبر تطبيق بيتك للتداول.
+          </p>
           <a class="btn btn-white" href="https://www.kfhtrade.com/Account-Opening">فتح حساب</a>
-          <a class="btn btn-line" href="https://www.instagram.com/reel/DPv03JgDPTh/">شاهد فيديو فتح الحساب</a>
         </div>
+        <figure class="showcase-media">
+          <img src="/currencies.png" alt="عميل يتابع سهم بيتك على تطبيق بيتك للتداول عبر هاتفه" width="1740"
+            height="904" loading="lazy" decoding="async">
+        </figure>
       </div>
     </section>
 
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/KFHLogo.png" alt="بيتك كابيتال">
-        </div>
-
-        <div>
-          <a class="phone-number" href="tel:1842000">184 2000</a>
-          <div class="footer-links" style="margin-block-start:.75rem">
-            <a href="https://www.kfhtrade.com/FAQ">أسئلة وأجوبة</a>
-            <a href="https://www.kfhtrade.com/Contact-Us">اتصل بنا</a>
+  <footer class="ft">
+    <div class="ft-wrap">
+      <div class="ft-top">
+        <div class="ft-brand">
+          <a class="ft-logo" href="https://www.kfhtrade.com/">
+            <img src="https://www.kfhtrade.com/Frontend/kfh_trade/images/logo.svg" alt="بيتك للتداول">
+          </a>
+          <p class="ft-note">خدمة من بيتك كابيتال.</p>
+          <span class="ft-label">اتصل بنا</span>
+          <a class="ft-phone" href="tel:1842000">184 2000</a>
+          <div class="ft-stores">
+            <a href="https://apps.apple.com/kw/app/kfh-trade/id1480361102">
+              <img src="/app-store-light.svg" width="120" height="40" alt="حمّل التطبيق من App Store">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=net.directfn.prod.android.kfhtrade">
+              <img src="/google-play-light.svg" width="120" height="40" alt="حمّل التطبيق من Google Play">
+            </a>
           </div>
         </div>
 
-        <div class="footer-links">
-          <a href="https://twitter.com/KFH_Capital">X</a>
-          <a href="https://www.linkedin.com/company/kfhcapital">LinkedIn</a>
-          <a href="https://instagram.com/kfhcapital">Instagram</a>
-        </div>
+        <nav class="ft-cols" aria-label="روابط التذييل">
+          <div>
+            <h2 class="ft-h">بيتك للتداول</h2>
+            <ul>
+              <li><a href="https://www.kfhtrade.com/About">عن بيتك للتداول</a></li>
+              <li><a href="https://www.kfhtrade.com/Services">الخدمات</a></li>
+              <li><a href="https://www.kfhtrade.com/Trading-Information">معلومات التداول</a></li>
+              <li><a href="https://www.kfhtrade.com/Trading-System">نظام التداول</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="ft-h">الأدوات</h2>
+            <ul>
+              <li><a href="https://www.kfhtrade.com/Zakat-Calculator">احسب زكاتك</a></li>
+              <li><a href="https://www.kfhtrade.com/Downloads">تحميل النماذج</a></li>
+              <li><a href="https://www.kfhtrade.com/IPOLoginClient">زيادة رأس المال</a></li>
+              <li><a href="https://www.kfhtrade.com/Announcements">إعلانات</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="ft-h">الدعم</h2>
+            <ul>
+              <li><a href="https://www.kfhtrade.com/Account-Opening">فتح حساب</a></li>
+              <li><a href="https://www.kfhtrade.com/FAQ">أسئلة وأجوبة</a></li>
+              <li><a href="https://www.kfhtrade.com/Contact-Us">اتصل بنا</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
 
-      <p class="copyright">حقوق الطبع والنشر ©2026 شركة بيتك كابيتال للاستثمار. جميع الحقوق محفوظة.</p>
+      <div class="ft-bottom">
+        <p>حقوق الطبع والنشر ©2026 شركة بيتك كابيتال للاستثمار. جميع الحقوق محفوظة.</p>
+        <ul class="ft-social" aria-label="التواصل الاجتماعي">
+          <li><a href="https://twitter.com/KFH_Capital">X</a></li>
+          <li><a href="https://www.linkedin.com/company/kfhcapital">LinkedIn</a></li>
+          <li><a href="https://instagram.com/kfhcapital">Instagram</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 

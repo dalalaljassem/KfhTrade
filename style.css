@@ -76,7 +76,7 @@ ul { padding: 0; list-style: none; }
 .btn-line { border-color: var(--ink); color: var(--ink); }
 .btn-line:hover { background: var(--ink); color: #fff; }
 .btn-white { background: #fff; color: var(--green-deep); }
-.btn-white:hover { background: var(--mint); }
+.btn-white:hover { background: rgb(216, 216, 216);; }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -184,13 +184,21 @@ ul { padding: 0; list-style: none; }
 .stores img { height: 44px; width: auto; }
 
 .hero-visual {
-  background: var(--mint);
+  background: rgb(216, 216, 216);;
   border-radius: var(--radius-lg);
   padding: clamp(1.5rem, 4vw, 3rem) 1rem 0;
   display: flex;
   justify-content: center;
   overflow: hidden;
 }
+
+
+/* Dark mode (default): show the white badge */
+.for-light { display: none; }
+
+/* Light mode: swap to the black badge */
+[data-theme="light"] .for-dark  { display: none; }
+[data-theme="light"] .for-light { display: inline; }
 
 @media (min-width: 960px) {
   .hero-grid { grid-template-columns: 1.1fr 0.9fr; }
@@ -253,7 +261,7 @@ ul { padding: 0; list-style: none; }
 .pill {
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
-  background: var(--mint);
+  background: rgb(216, 216, 216);;
   color: var(--green-deep);
   font-weight: 600;
   font-size: 0.85rem;
@@ -278,7 +286,7 @@ ul { padding: 0; list-style: none; }
 .markets .lead {
   margin-block-start: 1rem;
   max-width: 52ch;
-  color: #bfd9cf;
+  color: #000000;
 }
 .market-grid {
   display: grid;
@@ -302,12 +310,12 @@ a.market:hover { background: rgba(255, 255, 255, 0.16); }
 .market .code {
   width: 2.75rem;
   height: 2.75rem;
-  background: var(--mint);
+  background: rgb(216, 216, 216);;
   color: var(--green-deep);
   font-weight: 700;
 }
 .market h3 { font-size: 1.5rem; line-height: 1.3; }
-.market small { display: block; color: var(--mint); font-size: 0.95rem; margin-block-start: 0.15rem; }
+.market small { display: block; color: rgb(216, 216, 216);; font-size: 0.95rem; margin-block-start: 0.15rem; }
 
 /* ---------- Generic section ---------- */
 .section { padding-block: clamp(3rem, 8vw, 6rem); }
@@ -336,7 +344,7 @@ a.market:hover { background: rgba(255, 255, 255, 0.16); }
   text-decoration: none;
   transition: background-color 0.15s;
 }
-.tool:hover { background: var(--mint); }
+.tool:hover { background: #d8d8d8; }
 .tool h3 { font-size: 1.3rem; line-height: 1.4; }
 .tool p { color: var(--muted); }
 
@@ -345,7 +353,7 @@ a.market:hover { background: rgba(255, 255, 255, 0.16); }
   margin-inline: var(--gutter);
   margin-block-end: clamp(3rem, 8vw, 6rem);
   padding: clamp(2.5rem, 6vw, 4.5rem) var(--gutter);
-  background: var(--green);
+  background: #000;
   color: #fff;
   border-radius: var(--radius-lg);
 }
@@ -372,35 +380,414 @@ a.market:hover { background: rgba(255, 255, 255, 0.16); }
 }
 
 /* ---------- Footer ---------- */
-.site-footer {
-  padding-block: 3rem;
-  border-block-start: 1px solid var(--mist);
-  color: var(--muted);
-  font-size: 0.95rem;
+/* ==========================================================
+   Footer — dark, matching the hero and the app-photo section
+   ========================================================== */
+   .ft {
+    padding-block: clamp(3rem, 7vw, 5rem) 1.75rem;
+    background: #0b0b0b;
+    color: #a3a3a3;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    font-size: 0.98rem;
+  }
+  .ft-wrap { width: min(100% - 2 * var(--gutter), var(--wrap)); margin-inline: auto; }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft :focus-visible { outline-color: #fff; }
+  
+  .ft-top { display: grid; gap: clamp(2.5rem, 6vw, 4rem); }
+  @media (min-width: 960px) {
+    .ft-top { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+  }
+  
+  .ft-logo img { height: 36px; width: auto; filter: brightness(0) invert(1); }
+  .ft-note { margin-block: 0.9rem 2rem; max-width: 30ch; }
+  .ft-label { display: block; margin-block-end: 0.25rem; font-size: 0.9rem; }
+  .ft-phone {
+    display: inline-block;
+    color: #fff !important;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.1;
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+  .ft-stores { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.75rem; }
+  .ft-stores img { height: 44px; width: auto; }
+  
+  .ft-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 2rem; }
+  .ft-h { margin: 0 0 1rem; color: #fff; font-size: 1rem; font-weight: 600; }
+  .ft-cols ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.7rem; }
+  .ft-cols a:hover { color: #fff; }
+  
+  .ft-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-block-start: clamp(2.5rem, 6vw, 4rem);
+    padding-block-start: 1.5rem;
+    border-block-start: 1px solid rgba(255, 255, 255, 0.12);
+    font-size: 0.9rem;
+  }
+  .ft-social { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .ft-social a {
+    display: inline-block;
+    padding: 0.4rem 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    color: #d4d4d4;
+    transition: background-color 0.15s, color 0.15s;
+  }
+  .ft-social a:hover { background: #fff; color: #0b0b0b; }
+
+/* ==========================================================
+   Photo hero — black, white and gray only (no green here).
+   The photo sits on the far side of the text; a shadow fades
+   the text side to black, and the bottom melts into the page.
+   ========================================================== */
+.hero-cover {
+  --hero-black: #0b0b0b;
+  --hero-dir: to right;               /* flipped for RTL below */
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(560px, 82vh, 760px);
+  margin-block-end: 0;
+  overflow: hidden;
+  background: var(--hero-black);
+  color: #fff;
 }
-.footer-grid {
-  display: grid;
-  gap: 2rem;
+[dir="rtl"] .hero-cover { --hero-dir: to left; }
+
+.hero-media { position: absolute; inset: 0; z-index: -2; }
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  /* For a fully black-and-white photo too, uncomment: */
+  /* filter: grayscale(1) contrast(1.05); */
 }
-.footer-brand img { height: 44px; width: auto; }
-.footer-links { display: flex; flex-wrap: wrap; gap: 1.25rem; }
-.footer-links a { text-decoration: none; font-weight: 500; color: var(--ink); }
-.footer-links a:hover { color: var(--green); }
-.phone-number {
-  font-size: 1.75rem;
+/* Arabic reads right to left, so the photo is mirrored to keep the empty space behind the text */
+[dir="rtl"] .hero-media img { transform: scaleX(-1); }
+
+/* Shadow behind the text */
+.hero-cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(var(--hero-dir),
+    var(--hero-black) 0%,
+    rgba(11, 11, 11, 0.94) 24%,
+    rgba(11, 11, 11, 0.62) 40%,
+    rgba(11, 11, 11, 0.18) 58%,
+    rgba(11, 11, 11, 0) 72%);
+}
+/* Smooth fade into the page below */
+.hero-cover::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: 0;
+  height: 30%;
+  z-index: -1;
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.10) 35%,
+    rgba(255, 255, 255, 0.50) 70%,
+    var(--paper) 100%);
+}
+
+.hero-cover-inner { padding-block: clamp(3rem, 7vw, 5rem) clamp(7rem, 13vw, 10rem); }
+.hero-copy { max-width: 600px; }
+.hero-cover h1 {
+  font-size: clamp(2.6rem, 5.4vw, 4.75rem);
+  line-height: 1.2;
   font-weight: 700;
-  color: var(--ink);
+  letter-spacing: -0.01em;
+  max-width: 13ch;
+  color: #fff;
+}
+.hero-cover .lead {
+  margin-block-start: 1.5rem;
+  max-width: 44ch;
+  font-size: 1.2rem;
+  color: #d4d4d4;
+}
+.hero-cover .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 2rem; }
+.hero-cover .stores { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 2rem; }
+.hero-cover .stores img { height: 44px; width: auto; }
+
+/* Buttons: white and outline only */
+.hero-cover .btn-white { background: #fff; color: #0b0b0b; }
+.hero-cover .btn-white:hover { background: #e4e4e4; }
+.hero-cover .btn-line { border-color: #fff; color: #fff; }
+.hero-cover .btn-line:hover { background: #fff; color: #0b0b0b; }
+.hero-cover :focus-visible { outline-color: #fff; }
+
+/* Photo starts after the black text panel on wide screens */
+@media (min-width: 1000px) {
+  .hero-media { inset-inline-start: 24%; }
+}
+
+/* Small screens: photo full bleed, shadow comes from the bottom instead */
+@media (max-width: 999px) {
+  .hero-cover { align-items: flex-end; min-height: 640px; }
+  .hero-media img { object-position: 58% 20%; }
+  .hero-cover::before {
+    background: linear-gradient(to top,
+      var(--hero-black) 0%,
+      rgba(11, 11, 11, 0.88) 45%,
+      rgba(11, 11, 11, 0.35) 75%,
+      rgba(11, 11, 11, 0.15) 100%);
+  }
+  .hero-cover::after { height: 14%; }
+  .hero-cover-inner { padding-block: 12rem 6rem; }
+}
+
+/* ==========================================================
+   Glass header, seamless over the photo hero
+   Transparent at the top of the page, dark glass once you scroll.
+   (.at-top is toggled by a tiny script after the header; without
+   JavaScript the header simply stays dark glass, which is readable.)
+   ========================================================== */
+.site-header {
+  background: rgba(11, 11, 11, 0.72);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  backdrop-filter: blur(16px) saturate(1.4);
+  border-block-end: 0;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.10);
+  color: #fff;
+  transition: background-color 0.25s, box-shadow 0.25s;
+}
+.site-header.at-top {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+}
+.site-header .brand img { filter: brightness(0) invert(1); }   /* logo turns white */
+.site-header .nav a,
+.site-header .menu-panel a,
+.site-header .lang { color: #fff; }
+.site-header .nav a:hover { color: #bdbdbd; }
+.site-header .lang:hover { background: rgba(255, 255, 255, 0.12); }
+.site-header .btn-dark { background: #fff; color: #0b0b0b; }
+.site-header .btn-dark:hover { background: #e4e4e4; }
+.site-header .menu summary { background: rgba(255, 255, 255, 0.14); color: #fff; }
+.site-header .menu-panel {
+  background: rgba(17, 17, 17, 0.94);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.site-header .menu-panel a:hover { background: rgba(255, 255, 255, 0.10); }
+.site-header :focus-visible { outline-color: #fff; }
+
+/* The hero slides up underneath the header (header is 72px tall) */
+.hero-cover { margin-block-start: -72px; }
+.hero-cover-inner { padding-block-start: calc(72px + clamp(3rem, 7vw, 5rem)); }
+
+/* ==========================================================
+   Markets section — flags in a bento grid
+   Neutral dark panel so the flags carry the color.
+   ========================================================== */
+.mkts {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin-inline: var(--gutter);
+  padding: clamp(2.5rem, 6vw, 5rem) 0;
+  background: #0b0b0b;
+  color: #fff;
+  border-radius: var(--radius-lg);
+}
+.mkts::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(60% 55% at 85% 0%, rgba(255, 255, 255, 0.08), transparent 70%);
+}
+.mkts-inner { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+@media (min-width: 960px) {
+  .mkts-inner { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); }
+}
+.mkts h2 {
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+  max-width: 12ch;
+}
+.mkts .lead { margin-block: 1rem 2rem; max-width: 40ch; font-size: 1.1rem; color: #a3a3a3; }
+.mkts .btn-white { background: #fff; color: #0b0b0b; }
+.mkts .btn-white:hover { background: #e4e4e4; }
+.mkts :focus-visible { outline-color: #fff; }
+
+.mkts-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.mk-feature { grid-column: 1 / -1; }
+
+.mk-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: 100%;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  background: #161616;
+  color: #fff;
   text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, transform 0.15s;
+}
+.mk-feature .mk-card { min-height: 230px; }
+a.mk-card:hover { background: #1f1f1f; border-color: rgba(255, 255, 255, 0.24); transform: translateY(-2px); }
+
+/* Soft gray watermark of the flag behind each card */
+.mk-card::before {
+  content: "";
+  position: absolute;
+  inset-inline-end: -12%;
+  inset-block-start: -28%;
+  z-index: -1;
+  width: 75%;
+  aspect-ratio: 4 / 3;
+  background: var(--flag) center / cover no-repeat;
+  opacity: 0.13;
+  filter: grayscale(1);
+  -webkit-mask-image: radial-gradient(closest-side, #000 25%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 25%, transparent 100%);
+}
+
+.mk-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.mk-flag {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 9px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+.mk-feature .mk-flag { width: 88px; height: 66px; border-radius: 12px; }
+.mk-ccy {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+  color: #d4d4d4;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   direction: ltr;
   unicode-bidi: isolate;
 }
-.copyright { margin-block-start: 2rem; }
+.mk-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; }
+.mk-card h3 { font-size: 1.5rem; line-height: 1.3; font-weight: 700; }
+.mk-feature h3 { font-size: 2.1rem; }
+.mk-more { display: block; margin-block-start: 0.15rem; color: #a3a3a3; font-size: 0.95rem; }
+.mk-arrow {
+  flex: none;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: #0b0b0b;
+}
+[dir="rtl"] .mk-arrow svg { transform: scaleX(-1); }
 
-@media (min-width: 800px) {
-  .footer-grid { grid-template-columns: 1fr auto auto; align-items: start; gap: 4rem; }
+@media (max-width: 520px) {
+  .mkts-grid { grid-template-columns: 1fr; }
+  .mk-card { min-height: 170px; }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { transition: none !important; }
+/* ==========================================================
+   Black continues after the hero, then the app photo
+   ========================================================== */
+/* Hero now fades into black (not white) and sits flush against the next section */
+.hero-cover { margin-block-end: 0; }
+.hero-cover::after {
+  background: linear-gradient(to bottom,
+    rgba(11, 11, 11, 0) 0%,
+    rgba(11, 11, 11, 0.35) 45%,
+    rgba(11, 11, 11, 0.80) 80%,
+    #0b0b0b 100%);
 }
+
+.showcase {
+  padding-block: 0 clamp(2.5rem, 6vw, 5rem);
+  /* background: #0b0b0b; */
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.showcase-media {
+  position: relative;
+  width: min(100% - 2 * var(--gutter), 1280px);
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  /* background: #161616; */
+}
+.showcase-media img { display: block; width: 100%; height: auto; }
+/* Thin light edge so the photo separates cleanly from the black */
+.showcase-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
+  pointer-events: none;
+}
+
+/* ==========================================================
+   Showcase: text + button on one side, photo on the other
+   Follows reading direction: English text left / photo right,
+   Arabic text right / photo left. To force text on the LEFT in
+   Arabic too, add:  [dir="rtl"] .showcase-grid { direction: ltr; }
+   [dir="rtl"] .showcase-copy { direction: rtl; }
+   ========================================================== */
+.showcase-grid {
+  width: min(100% - 2 * var(--gutter), var(--wrap));
+  margin-inline: auto;
+  display: grid;
+  gap: clamp(1.75rem, 5vw, 4rem);
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .showcase-grid { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+}
+.showcase-copy h2 {
+  font-size: clamp(2rem, 4.6vw, 3.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+  max-width: 12ch;
+  color: #000000;
+}
+.showcase-copy .lead { margin-block: 1rem 2rem; max-width: 40ch; font-size: 1.1rem; color: #000000; }
+.showcase .btn-white { background: #000000; color: #ffffff; }
+.showcase .btn-white:hover { background: #e4e4e4; }
+.showcase :focus-visible { outline-color: #fff; }
+
+/* The photo now fills its column instead of spanning the page */
+.showcase-grid .showcase-media { width: auto; margin: 0; }
+.showcase-grid .showcase-media img {
+  /* aspect-ratio: 5 / 4; */
+  object-fit: cover;
+  object-position: 72% 50%;      /* keeps the phone and his face in frame */
+}
+/* Hero fills the whole first screen, so the next section starts below the fold */
+.hero-cover { min-height: 100vh; min-height: 100svh; }
+@media (max-width: 999px) { .hero-cover { min-height: max(640px, 100svh); } }
